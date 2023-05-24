@@ -6,7 +6,7 @@ public class Solution {
         Scanner scan = new Scanner(System.in);
         int i    = scan.nextInt();
         double d = scan.nextDouble();
-        scan.nextLine();              // gets rid of the pesky newline
+        scan.nextLine();     
         String s = scan.nextLine();
         scan.close();
         
