@@ -16,7 +16,13 @@ Write a query to print the list of CITY that starts with vowels and ends at vowe
 
 */
 
---Solution
+--Solution: Using REGEXP_LIKE Function (MySQL Query):
 
 SELECT DISTINCT CITY FROM STATION WHERE REGEXP_LIKE (UPPER(city),'^[AEIOU].*[AEIOU]$');
+
+--Solution : Using LEFT & RIGHT Function (MySQL Query):
+SELECT DISTINCT CITY
+FROM STATION
+WHERE LEFT(CITY,1) in ('a','e','i','o','u','A','E','I','O','U')
+AND RIGHT(CITY,1) in ('a','e','i','o','u','A','E','I','O','U');
 	  
