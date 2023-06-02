@@ -1,6 +1,9 @@
 --Problem STATEMENT
 /*
-Given a table STATION that holds data for five fields namely ID, CITY, STATE, NORTHERN LATITUDE and WESTERN LONGITUDE.
+Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths
+(i.e.: number of characters in the name). If there is more than one smallest or largest city, 
+choose the one that comes first when ordered alphabetically.
+The STATION table is described as follows:
 +-------------+------------+
 | Field       |   Type     |
 +-------------+------------+
@@ -11,27 +14,28 @@ Given a table STATION that holds data for five fields namely ID, CITY, STATE, NO
 | LONG_W      | NUMERIC    |
 +-------------+------------+
  
-Let |city| be the length of the city, write a query to print two lines:
-1. First line is city1 and |city1| separated by space, where |city1| is the possible minimum value.
-2. Second line is city2 and |city2| separated by space, where |city2|  is the possible maximum value.
-If there are more than one possible cities print the lexicographical smallest.
+where LAT_N is the northern latitude and LONG_W is the western longitude.
 
+Sample Input
+
+For example, CITY has four entries: DEF, ABC, PQRS and WXY.
+
+Sample Output
+
+ABC 3
+PQRS 4
+
+
+Note
+You can write two separate queries to get the desired output. 
+It need not be a single query.
 */
 
 --Solution
+SELECT CITY, LENGTH(CITY) FROM STATION
+ORDER BY LENGTH(CITY), CITY
+LIMIT 1;
 
-SELECT CITY || ' ' || LENGTH 
-FROM (
-SELECT CITY , LENGTH(CITY) AS LENGTH
-FROM STATION 
-WHERE LENGTH(CITY) = (SELECT MAX(LENGTH(CITY)) FROM STATION) 
-ORDER BY CITY ) 
-WHERE ROWNUM <= 1
-UNION
-SELECT CITY || ' ' || LENGTH 
-FROM (
-SELECT CITY , LENGTH(CITY) AS LENGTH
-FROM STATION 
-WHERE LENGTH(CITY) = (SELECT MIN(LENGTH(CITY)) FROM STATION) 
-ORDER BY CITY ) 
-WHERE ROWNUM <= 1 ;
+SELECT CITY, LENGTH(CITY) FROM STATION
+ORDER BY LENGTH(CITY) DESC, CITY
+LIMIT 1;
