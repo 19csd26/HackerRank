@@ -16,7 +16,10 @@ Write a query to print the list of CITY that ends at vowels in lexicographical o
 
 
 --Solution
-
-SELECT DISTINCT CITY 
-FROM STATION 
-WHERE RIGHT(CITY, 1) IN ('a', 'e', 'i', 'o', 'u');
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY LIKE 'A%'
+OR CITY LIKE 'E%'
+OR CITY LIKE 'I%'
+OR CITY LIKE 'O%'
+OR CITY LIKE 'U%';
