@@ -19,4 +19,4 @@ Let NUM be no. of cities and NUMunique be no. of unique cities, then write a que
 --Solution
 
 SELECT COUNT(CITY) - COUNT (DISTINCT City)
-FROM STATION ;
+FROM STATION;
