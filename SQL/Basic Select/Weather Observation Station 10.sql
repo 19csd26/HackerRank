@@ -20,5 +20,4 @@ Write a query to print the list of CITY that does not end with vowels in lexicog
 
 SELECT DISTINCT CITY 
 FROM STATION 
-WHERE NOT (CITY LIKE '%a' OR  CITY  LIKE '%e' OR CITY  LIKE '%i' OR CITY  LIKE '%o' OR CITY  LIKE '%u')
-ORDER BY CITY;
+WHERE NOT (CITY LIKE '%a' OR CITY LIKE '%e' OR CITY LIKE '%i' OR CITY LIKE '%o' OR CITY LIKE '%u');
