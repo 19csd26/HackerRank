@@ -16,10 +16,6 @@ Write a query to print the list of CITY that does not start with vowels or does 
 */
 
 --Solution
-
-SELECT DISTINCT CITY
-FROM STATION
-WHERE (NOT(CITY  Like 'A%' OR CITY LIKE 'E%' OR CITY LIKE 'O%' OR CITY LIKE 'I%' OR CITY LIKE 'U%'))
-		OR 
-	  (NOT (CITY LIKE '%a' OR CITY  LIKE '%e' OR CITY LIKE '%i' OR CITY LIKE '%o' OR CITY LIKE '%u'))
-ORDER BY CITY;
+SELECT DISTINCT CITY 
+FROM STATION 
+WHERE NOT ((CITY LIKE 'A%' OR CITY LIKE 'E%' OR CITY LIKE 'I%' OR CITY LIKE 'O%' OR CITY LIKE 'U%') AND (CITY LIKE '%a' OR CITY LIKE '%e' OR CITY LIKE '%i' OR CITY LIKE '%o' OR CITY LIKE '%u'));
